@@ -1,0 +1,151 @@
+.cabecalho{
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.cabecalho__menu-hamburguer{
+    width: 44px;
+    height: 44px;
+    padding:1rem;
+    background-image: url("../images/Menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+.container{
+    display:flex;
+    align-items:center;
+    color: var(--preto);
+    margin-right:1rem;
+}
+.container_meio{
+    margin: 0 2rem;
+}
+.container__imagem{
+    margin-left: 1rem;
+}
+.container__link-texto{
+    display:none;
+}
+.lista-menu{
+    display: none;
+    /* display: none, some o conteúdo */
+    position: absolute;
+    top:100%;
+    width: 60vw;
+}
+.container__botao:checked ~ .container__rotulo > .cabecalho__menu-hamburguer{
+    background-image: url("../images/Menu-aberto.svg");
+}
+.container__botao:checked ~ .container__rotulo{
+    background: var(--azul-degrade);
+}
+.container__botao:checked ~ .lista-menu{
+    display: block;
+    /* o ~ vai buscar a próxima classe depois do container__botao */
+}
+.lista-menu__titulo, .lista-menu__item{
+    padding: 1em;
+    background-color: var(--branco);
+}
+.lista-menu__titulo{
+    color: var(--laranja);
+    font-weight:700;
+}
+.lista-menu__link{
+    background: var(--azul-degrade);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    text-transform: uppercase;
+}
+.container__botao{
+    display:none;
+}
+.container__titulo{
+    display:none;
+}
+.opcoes{
+    display:none;
+}
+
+/* quando a tela tiver 1024px ou mais, será aplicado as seguintes propriedades */
+@media screen and (min-width: 1024px){
+    .container__titulo, .container__titulo--negrito{
+        font-family: var(--fonte-secundaria);
+        font-size:2rem;
+    }
+    .container__titulo{
+        font-weight:400;
+        display:block;
+    }
+    .container__titulo--negrito{
+        font-weight:700;
+    }
+    .opcoes{
+        display:flex;
+    }
+    .opcoes__item{
+        text-transform: uppercase;
+        margin-right:3rem;
+        padding: 2rem 1rem;
+    }
+    .opcoes__link{
+        text-decoration:none;
+        color: var(--preto);
+    }
+    .container__favorito, .cabecalho__menu-hamburguer{
+        display:none;
+    }
+    .container{
+        padding-right: 2rem;;
+    }
+    .container__imagem{
+        margin: 0rem 1rem;
+    }
+    .opcoes__botao:checked ~ .lista-menu{
+        display:block;
+        width:auto;
+    }
+    .opcoes__botao{
+        display:none;
+    }
+    .opcoes__botao:checked~.opcoes__rotulo>.opcoes__item{
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+    .lista-menu__item:hover{
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+    .lista-menu__item:hover > .lista-menu__link {
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+}
+
+
+@media screen and (min-width: 1728px){
+    .container__link{
+        display:flex;
+        align-items: center;
+        text-decoration:none;
+    }
+    .container__link-texto{
+        display:block;
+        color: var(--preto);
+        font-size:1.3rem; 
+    }
+    .cabecalho{
+        padding: 1rem 2rem;
+    }
+    .opcoes{
+        margin-right: auto;
+        /* o margin-right: auto, coloca meu elemento todo pra direita */
+    }
+
+}
+
